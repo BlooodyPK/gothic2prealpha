@@ -104,6 +104,17 @@
       33%  { content: '..'; }
       66%  { content: '...'; }
       100% { content: '.'; }
+    .footer-text {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      color: #888;
+      text-align: center;
+      width: 90%;
+      line-height: 1.2;
+      z-index: 1;
     }
   </style>
 </head>
@@ -117,6 +128,9 @@
     </div>
     <div class="fade-overlay"></div>
     <a class="download-link" href="file.zip" download>Download</a>
+    <div class="footer-text">
+      Gothic 2 was developed from 2001 to 2002 by Piranha Bytes. ZenGin was developed 1996–2001 by the Mad Scientists. Since 2021 GOTHIC belongs to THQ Nordic.
+    </div>
   </div>
 
   <audio autoplay loop>
