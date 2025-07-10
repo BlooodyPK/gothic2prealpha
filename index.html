@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Gothic 2 Pre Alpha</title>
   <style>
     body {
@@ -13,6 +13,8 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      font-family: Verdana, sans-serif;
+      color: #a060ff;
     }
 
     .container {
@@ -21,18 +23,21 @@
       height: 600px;
       background: url('background.png') no-repeat center top;
       background-color: black;
-      box-shadow: 0 0 20px black;
+      box-shadow: 0 0 20px #a060ff;
       overflow: hidden;
-      font-family: Verdana, sans-serif;
+      padding-top: 40px;
     }
 
     .download-link {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      font-size: 16px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
       color: #a060ff;
       text-decoration: none;
+      z-index: 5;
+      user-select: none;
     }
 
     .download-link:hover {
@@ -78,6 +83,7 @@
       display: inline-block;
       width: 1em;
       text-align: left;
+      margin-left: 0;
     }
 
     .dots::after {
@@ -104,37 +110,45 @@
       33%  { content: '..'; }
       66%  { content: '...'; }
       100% { content: '.'; }
-    .footer-text {
-      position: absolute;
-      bottom: 5px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 9px;
-      color: #888;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       text-align: center;
-      width: 90%;
-      line-height: 1.2;
-      z-index: 1;
+      font-size: 9px;
+      color: #a060ff;
+      padding: 4px 10px;
+      background-color: black;
+      user-select: none;
+      pointer-events: none;
+      font-family: Verdana, sans-serif;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <a class="download-link" href="file.zip" download>Download</a>
+
     <div class="loading-screen">
       <div class="loading-text">
         Loading<span class="dots"></span>
       </div>
     </div>
+
     <div class="fade-overlay"></div>
-    <a class="download-link" href="file.zip" download>Download</a>
-    <div class="footer-text">
-      Gothic 2 was developed from 2001 to 2002 by Piranha Bytes. ZenGin was developed 1996–2001 by the Mad Scientists. Since 2021 GOTHIC belongs to THQ Nordic.
-    </div>
+  </div>
+
+  <div class="footer">
+    © 2002 Piranha Bytes. All rights reserved. Since 2021, all rights to Gothic are owned by THQ Nordic GmbH. Gothic and its logo are registered trademarks. Gothic 2 Pre Alpha modification was created non-commercially by Bloody in 2025.
   </div>
 
   <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg" />
     Your browser does not support audio playback.
   </audio>
 
