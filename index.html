@@ -70,6 +70,20 @@
       color: #a060ff;
       font-size: 24px;
       animation: pulse 1.2s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+    }
+
+    .dots {
+      display: inline-block;
+      width: 1em;
+      text-align: left;
+      margin-left: 5px;
+    }
+
+    .dots::after {
+      content: '.';
+      animation: dots 1.2s steps(3, end) infinite;
     }
 
     @keyframes fadeOut {
@@ -85,16 +99,25 @@
       50%  { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+
+    @keyframes dots {
+      0%   { content: '.'; }
+      33%  { content: '..'; }
+      66%  { content: '...'; }
+      100% { content: '.'; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <div class="loading-screen">
-      <div class="loading-text">Loading...</div>
+      <div class="loading-text">
+        Loading<span class="dots"></span>
+      </div>
     </div>
     <div class="fade-overlay"></div>
-    <a class="download-link" href="file.zip" download>Download</a>
+    <a class="download-link" href="file.zip" download>Click here to download</a>
   </div>
 
   <audio autoplay loop>
