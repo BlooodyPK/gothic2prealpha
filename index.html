@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gothic 2 Pre Alpha</title>
+  <title>Gothic 2 Pre alpha</title>
   <style>
     body {
       margin: 0;
@@ -21,17 +21,18 @@
       height: 600px;
       background: url('background.png') no-repeat center top;
       background-color: black;
-      box-shadow: 0 0 10px black;
+      box-shadow: 0 0 20px #a060ff;
       overflow: hidden;
+      font-family: Verdana, sans-serif;
     }
 
     .download-link {
       position: absolute;
       bottom: 20px;
       left: 20px;
-      font-family: Verdana, sans-serif;
       font-size: 16px;
-      color: white;
+      color: #a060ff;
+      text-decoration: none;
     }
 
     .download-link:hover {
@@ -44,22 +45,44 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: black;
-      z-index: 2;
+      background-color: white;
+      z-index: 3;
       animation: fadeOut 1.5s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: #a060ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      z-index: 4;
+      animation: hideLoading 0.5s ease forwards;
+      animation-delay: 2s;
     }
 
     @keyframes fadeOut {
-      0% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes hideLoading {
+      to { opacity: 0; visibility: hidden; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <div class="loading-screen">Loading...</div>
     <div class="fade-overlay"></div>
-    <a class="download-link" href="file.zip" download>Download</a>
+    <a class="download-link" href="file.zip" download>Click here to download</a>
   </div>
 
   <audio autoplay loop>
