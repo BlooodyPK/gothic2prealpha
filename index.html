@@ -23,9 +23,10 @@
       height: 600px;
       background: url('background.png') no-repeat center top;
       background-color: black;
-      box-shadow: 0 0 20px #a060ff;
+      box-shadow: 0 0 20px black;
       overflow: hidden;
-      padding-top: 40px;
+      padding: 10px 20px 30px 20px;
+      box-sizing: border-box;
     }
 
     .download-link {
@@ -36,8 +37,16 @@
       font-size: 18px;
       color: #a060ff;
       text-decoration: none;
-      z-index: 5;
+      z-index: 1;
       user-select: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .download-link.visible {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .download-link:hover {
@@ -113,19 +122,17 @@
     }
 
     .footer {
-      position: fixed;
-      bottom: 0;
+      position: absolute;
+      bottom: 5px;
       left: 0;
       width: 100%;
       text-align: center;
       font-size: 9px;
       color: #a060ff;
-      padding: 4px 10px;
-      background-color: black;
+      padding: 0 10px;
       user-select: none;
       pointer-events: none;
       font-family: Verdana, sans-serif;
-      z-index: 10;
     }
   </style>
 </head>
@@ -141,16 +148,25 @@
     </div>
 
     <div class="fade-overlay"></div>
-  </div>
 
-  <div class="footer">
-    © 2002 Piranha Bytes. All rights reserved. Since 2021, all rights to Gothic are owned by THQ Nordic GmbH. Gothic and its logo are registered trademarks. Gothic 2 Pre Alpha modification was created non-commercially by Bloody in 2025.
+    <div class="footer">
+      © 2002 Piranha Bytes. All rights reserved. Since 2021, all rights to Gothic are owned by THQ Nordic GmbH. Gothic and its logo are registered trademarks. Gothic 2 Pre Alpha modification was created non-commercially by Bloody in 2025.
+    </div>
   </div>
 
   <audio autoplay loop>
     <source src="music.mp3" type="audio/mpeg" />
     Your browser does not support audio playback.
   </audio>
+
+  <script>
+    // Show download link after loading animation ends (ok. 3s)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelector('.download-link').classList.add('visible');
+      }, 3000);
+    });
+  </script>
 
 </body>
 </html>
