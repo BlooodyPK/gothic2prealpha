@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <title>Gothic 2 Pre Alpha</title>
   <style>
-    @font-face {
-      font-family: 'DOSFont';
-      src: url('https://fonts.cdnfonts.com/s/14886/Perfect DOS VGA 437.woff') format('woff');
-    }
-
     body {
       margin: 0;
       padding: 0;
@@ -28,9 +23,7 @@
       background-color: black;
       box-shadow: 0 0 20px #a060ff;
       overflow: hidden;
-      font-family: 'DOSFont', monospace;
-      color: #a060ff;
-      position: relative;
+      font-family: Verdana, sans-serif;
     }
 
     .download-link {
@@ -55,7 +48,7 @@
       background-color: white;
       z-index: 3;
       animation: fadeOut 1.5s ease forwards;
-      animation-delay: 3.5s;
+      animation-delay: 2.5s;
     }
 
     .loading-screen {
@@ -67,14 +60,14 @@
       background-color: black;
       z-index: 4;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       animation: hideLoading 0.5s ease forwards;
-      animation-delay: 3.5s;
+      animation-delay: 2.5s;
     }
 
     .loading-text {
+      color: #a060ff;
       font-size: 24px;
       animation: pulse 1.2s infinite ease-in-out;
       display: flex;
@@ -85,40 +78,11 @@
       display: inline-block;
       width: 1em;
       text-align: left;
-      margin-left: 5px;
     }
 
     .dots::after {
       content: '.';
       animation: dots 1.2s steps(3, end) infinite;
-    }
-
-    .loading-bar {
-      font-size: 16px;
-      margin-top: 20px;
-      letter-spacing: 2px;
-      animation: barLoad 3s steps(20) forwards;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 220px;
-      border: 1px solid #a060ff;
-      padding: 2px 4px;
-    }
-
-    .crt-effect {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.02),
-        rgba(255, 255, 255, 0.02) 1px,
-        transparent 1px,
-        transparent 3px
-      );
-      pointer-events: none;
-      z-index: 2;
-      animation: flicker 0.2s infinite;
     }
 
     @keyframes fadeOut {
@@ -141,16 +105,6 @@
       66%  { content: '...'; }
       100% { content: '.'; }
     }
-
-    @keyframes barLoad {
-      from { width: 0; }
-      to { width: 220px; }
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50%      { opacity: 0.97; }
-    }
   </style>
 </head>
 <body>
@@ -160,20 +114,14 @@
       <div class="loading-text">
         Loading<span class="dots"></span>
       </div>
-      <div class="loading-bar">[■■■■■■■■■■■■■■■■■■■■]</div>
     </div>
     <div class="fade-overlay"></div>
     <a class="download-link" href="file.zip" download>Click here to download</a>
-    <div class="crt-effect"></div>
   </div>
 
   <audio autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
     Your browser does not support audio playback.
-  </audio>
-
-  <audio autoplay>
-    <source src="loadsound.mp3" type="audio/mpeg">
   </audio>
 
 </body>
