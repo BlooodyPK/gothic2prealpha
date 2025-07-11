@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gothic 2 Pre Alpha</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      background: url('background.png') no-repeat center top;
+      background-color: black;
+      box-shadow: 0 0 20px black;
+      overflow: hidden;
+      font-family: Verdana, sans-serif;
+    }
+
+    .download-link {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 16px;
+      color: #a060ff;
+      text-decoration: none;
+    }
+
+    .download-link:hover {
+      color: #ffffff;
+    }
+
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 3;
+      animation: fadeOut 1.5s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    .loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: hideLoading 0.5s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    .loading-text {
+      color: #a060ff;
+      font-size: 24px;
+      animation: pulse 1.2s infinite ease-in-out;
+      display: flex;
+      align-items: center;
+    }
+
+    .dots {
+      display: inline-block;
+      width: 1em;
+      text-align: left;
+    }
+
+    .dots::after {
+      content: '.';
+      animation: dots 1.2s steps(3, end) infinite;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes hideLoading {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes dots {
+      0%   { content: '.'; }
+      33%  { content: '..'; }
+      66%  { content: '...'; }
+      100% { content: '.'; }
+    .footer-text {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      color: #888;
+      text-align: center;
+      width: 90%;
+      line-height: 1.2;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="loading-screen">
+      <div class="loading-text">
+        Loading<span class="dots"></span>
+      </div>
+    </div>
+    <div class="fade-overlay"></div>
+    <a class="download-link" href="file.zip" download>Download</a>
+    <div class="footer-text">
+      Gothic 2 was developed from 2001 to 2002 by Piranha Bytes. ZenGin was developed 1996–2001 by the Mad Scientists. Since 2021 GOTHIC belongs to THQ Nordic.
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+  </audio>
+
+</body>
+</html>
